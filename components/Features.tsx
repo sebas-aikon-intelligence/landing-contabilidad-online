@@ -5,8 +5,8 @@ import { Brain, ShieldCheck, Zap, BarChart3, Users } from 'lucide-react'
 const features = [
   {
     icon: Brain,
-    title: 'Mapeo Inteligente de Cuentas (PUC)',
-    desc: 'La IA interpreta el concepto de cada factura (papelería, arriendos, honorarios) y sugiere la cuenta del Plan Único de Cuentas correcta.',
+    title: 'IA que aprende tu Plan de Cuentas (PUC)',
+    desc: 'La IA interpreta el concepto de cada factura — papelería, arriendos, honorarios, servicios — y sugiere la cuenta correcta de tu PUC. Con cada corrección que haces, aprende y mejora sola.',
     tag: 'Sugerencia PUC',
     col: 'lg:col-span-2',
   },
@@ -27,7 +27,7 @@ const features = [
   {
     icon: BarChart3,
     title: 'Prevención de Errores y Glosas',
-    desc: 'Verifica la validez del XML frente a la DIAN antes de subirlo a Siigo. Si hay un error, el sistema te alerta al instante.',
+    desc: 'Valida el XML frente a la DIAN antes de causar. Si un proveedor comete un error o el documento tiene inconsistencias, el sistema te alerta al instante.',
     tag: 'Filtro Antierrores',
     col: 'lg:col-span-1',
   },
@@ -56,11 +56,11 @@ export default function Features() {
         <div className="text-center mb-14">
           <div className="badge-orange inline-flex mb-4">Características</div>
           <h2 className="reveal font-jakarta font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-slate-900 mb-4 tracking-tight leading-tight">
-            Todo lo que necesitas para{' '}
-            <span className="gradient-text">automatizar tu causación</span>
+            La IA que trabaja{' '}
+            <span className="gradient-text">mientras tú descansas</span>
           </h2>
           <p className="reveal reveal-delay-1 text-slate-500 text-lg max-w-2xl mx-auto">
-            Diseñado específicamente para contadores colombianos y firmas de outsourcing.
+            Funciona con Siigo, Alegra, World Office, Helisa y más. Diseñado para contadores colombianos que quieren recuperar su tiempo.
           </p>
         </div>
 

@@ -10,21 +10,21 @@ const steps = [
     num: '01',
     icon: Link2,
     title: 'Conecta la DIAN',
-    desc: 'Vincula la recepción de facturas electrónicas de forma rápida y segura. Nuestro sistema lee tus XML directo del portal DIAN.',
+    desc: 'Vincula la recepción de facturas electrónicas en segundos. Nuestro sistema lee los XML directo del portal DIAN sin importar el volumen.',
     detail: 'Configuración en 3 minutos',
   },
   {
     num: '02',
     icon: Cpu,
-    title: 'La IA lee y asocia tu PUC',
-    desc: 'Nuestro motor IA interpreta cada factura (IVA, retenciones, descripción) y sugiere las cuentas correctas de tu plan contable.',
+    title: 'La IA lee, clasifica y aprende',
+    desc: 'El motor IA interpreta cada factura — IVA, retenciones, descripción — y sugiere las cuentas exactas de tu PUC. Con el tiempo, aprende de tus ajustes y mejora solo.',
     detail: '99.8% de precisión',
   },
   {
     num: '03',
     icon: CheckCircle2,
-    title: 'Sincroniza en Siigo',
-    desc: 'Con un clic (o en automático), las facturas procesadas se cargan a Siigo con tercero, producto contable y centro de costo.',
+    title: 'Envía a tu software contable',
+    desc: 'Con un clic (o en automático), las facturas causadas se sincronizan con Siigo, Alegra, World Office, Helisa o el software que uses — con tercero, cuenta y centro de costo.',
     detail: 'Sincronización instantánea',
   },
 ]
@@ -41,7 +41,7 @@ export default function HowItWorks() {
             <span className="gradient-text">Tus facturas causadas.</span>
           </h2>
           <p className="reveal reveal-delay-1 text-slate-500 text-lg max-w-xl mx-auto">
-            Sin instalaciones complejas ni procesos lentos. Tu contabilidad al día de forma automática.
+            Sin instalaciones. Sin migraciones. La IA se adapta a tu software contable actual y empieza a trabajar desde el día uno.
           </p>
         </div>
 
@@ -125,10 +125,17 @@ export default function HowItWorks() {
                   </div>
 
                   {/* AI Engine box */}
-                  <div className="flex-1 bg-orange-50 border-2 border-orange-200 rounded-xl p-4 text-center relative overflow-hidden">
+                  <div className="flex-1 bg-orange-50 border-2 border-orange-200 rounded-xl p-4 text-center relative overflow-visible">
                     <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-orange via-amber-400 to-brand-orange" style={{ animation: 'gradient-shift 2s linear infinite' }} />
-                    <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Zap size={18} className="text-white" fill="white" />
+                    {/* Spinning ring around icon */}
+                    <div className="relative w-10 h-10 mx-auto mb-2">
+                      <div
+                        className="absolute inset-0 rounded-xl border-2 border-dashed border-orange-300 spin-slow"
+                        style={{ borderRadius: '10px' }}
+                      />
+                      <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center relative z-10" style={{ animation: 'ai-pulse 2s ease-in-out infinite' }}>
+                        <Zap size={18} className="text-white" fill="white" />
+                      </div>
                     </div>
                     <p className="text-xs font-bold text-orange-700">Motor IA</p>
                     <p className="text-[10px] text-orange-500 mt-0.5">Causación Auto.</p>
@@ -150,13 +157,13 @@ export default function HowItWorks() {
                     <ArrowRight size={14} className="text-emerald-500" />
                   </div>
 
-                  {/* Siigo box */}
+                  {/* Software box */}
                   <div className="flex-1 bg-emerald-50 border border-emerald-100 rounded-xl p-4 text-center">
                     <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-2">
                       <Database size={18} className="text-emerald-600" />
                     </div>
-                    <p className="text-xs font-bold text-emerald-700">Siigo</p>
-                    <p className="text-[10px] text-emerald-500 mt-0.5">ERP Colombia</p>
+                    <p className="text-xs font-bold text-emerald-700">Tu Software</p>
+                    <p className="text-[10px] text-emerald-500 mt-0.5">Siigo, Alegra y más</p>
                     <div className="mt-2 text-[11px] font-extrabold text-emerald-700">108</div>
                     <div className="text-[9px] text-emerald-400">causadas ✓</div>
                   </div>
@@ -173,7 +180,7 @@ export default function HowItWorks() {
                     { t: '09:14:01', msg: 'Analizando XML — NIT 890.903.938-8', color: 'text-slate-300' },
                     { t: '09:14:02', msg: 'PUC sugerido: 620500 (Seguros)', color: 'text-emerald-400' },
                     { t: '09:14:02', msg: 'Retención fuente 11% calculada', color: 'text-emerald-400' },
-                    { t: '09:14:02', msg: '✓ Causada en Siigo — ID #48291', color: 'text-brand-orange' },
+                    { t: '09:14:02', msg: '✓ Causada en software contable — ID #48291', color: 'text-brand-orange' },
                   ].map((log, i) => (
                     <div
                       key={i}

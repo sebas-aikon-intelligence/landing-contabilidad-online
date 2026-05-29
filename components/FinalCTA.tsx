@@ -20,7 +20,11 @@ export default function FinalCTA() {
           backgroundSize: '40px 40px',
         }}
       />
-      {/* Glow */}
+      {/* Animated floating orbs */}
+      <div className="float-orb w-72 h-72 top-10 left-10 bg-orange-500/10" />
+      <div className="float-orb float-orb-2 w-56 h-56 bottom-10 right-20 bg-amber-400/8" />
+      <div className="float-orb float-orb-3 w-40 h-40 top-1/2 right-1/3 bg-orange-600/6" />
+      {/* Center glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] pointer-events-none"
         style={{
@@ -37,15 +41,14 @@ export default function FinalCTA() {
 
         {/* Headline */}
         <h2 className="reveal font-jakarta font-extrabold text-4xl sm:text-5xl lg:text-[56px] text-white tracking-tight leading-[1.06] mb-6">
-          ¿Listo para{' '}
-          <span className="gradient-text-animate">automatizar</span>
-          <br />
-          tu causación?
+          La IA trabaja.{' '}
+          <span className="gradient-text-animate">Tú cierras temprano.</span>
         </h2>
 
         <p className="reveal reveal-delay-1 text-white/60 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-          Agenda una demo de 30 minutos y te mostramos cómo tu firma puede causar el doble
-          de facturas en la mitad del tiempo, empezando hoy.
+          En 30 minutos te mostramos cómo conectar la DIAN con tu software contable
+          y hacer que la IA cause tus facturas automáticamente — con Siigo, Alegra,
+          World Office o el que uses. Empezamos hoy.
         </p>
 
         {/* Perks */}

@@ -254,3 +254,88 @@
 .mock-row-3 { animation-delay: 0.8s; }
 .mock-row-4 { animation-delay: 1.05s; }
 .mock-row-5 { animation-delay: 1.3s; }
+
+/* ─── Software ticker ────────────────────────────────── */
+.software-ticker {
+  display: flex;
+  width: max-content;
+  animation: scroll-logos 22s linear infinite;
+}
+.software-ticker:hover { animation-play-state: paused; }
+
+/* ─── Spin loops ─────────────────────────────────────── */
+.spin-slow    { animation: spin-cw  20s linear infinite; }
+.spin-reverse { animation: spin-ccw 28s linear infinite; }
+.spin-medium  { animation: spin-cw  10s linear infinite; }
+
+/* ─── Wave chips ─────────────────────────────────────── */
+.wave-chip { animation: wave-chip 4s ease-in-out infinite; }
+.wave-chip-2 { animation: wave-chip 4s ease-in-out 0.5s infinite; }
+.wave-chip-3 { animation: wave-chip 4s ease-in-out 1s infinite; }
+.wave-chip-4 { animation: wave-chip 4s ease-in-out 1.5s infinite; }
+.wave-chip-5 { animation: wave-chip 4s ease-in-out 2s infinite; }
+
+/* ─── Glow pulse ring ────────────────────────────────── */
+.glow-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,107,0,0.3);
+  animation: ping-expand 2s ease-out infinite;
+}
+.glow-ring-2 {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,107,0,0.15);
+  animation: ping-expand 2s ease-out 0.6s infinite;
+}
+
+/* ─── Floating orbs (FinalCTA) ───────────────────────── */
+.float-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: float-orb 8s ease-in-out infinite;
+}
+.float-orb-2 { animation-duration: 11s; animation-delay: -3s; }
+.float-orb-3 { animation-duration: 14s; animation-delay: -6s; }
+
+/* ─── Morphing blob ──────────────────────────────────── */
+.morph-blob {
+  animation: morph-blob 8s ease-in-out infinite;
+}
+
+/* ─── New keyframes ──────────────────────────────────── */
+@keyframes spin-cw  { to { transform: rotate(360deg); } }
+@keyframes spin-ccw { to { transform: rotate(-360deg); } }
+
+@keyframes wave-chip {
+  0%, 100% { transform: translateY(0px); }
+  40%       { transform: translateY(-5px); }
+  70%       { transform: translateY(-2px); }
+}
+
+@keyframes ping-expand {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes float-orb {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  33%     { transform: translate(25px, -35px) scale(1.08); }
+  66%     { transform: translate(-20px, 18px) scale(0.93); }
+}
+
+@keyframes morph-blob {
+  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25%     { border-radius: 40% 60% 55% 45% / 55% 45% 60% 40%; }
+  50%     { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  75%     { border-radius: 55% 45% 40% 60% / 40% 55% 45% 65%; }
+}
+
+@keyframes ai-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0.35); }
+  50%       { box-shadow: 0 0 0 10px rgba(255,107,0,0); }
+}

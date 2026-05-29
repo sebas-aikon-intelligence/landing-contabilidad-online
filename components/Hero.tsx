@@ -1,10 +1,16 @@
 'use client'
 
 import { useEffect } from 'react'
-import { ArrowRight, CheckCircle, Sparkles, TrendingUp } from 'lucide-react'
+import { ArrowRight, CheckCircle, Sparkles, TrendingUp, Cpu } from 'lucide-react'
 
 const WA_URL =
   'https://api.whatsapp.com/send/?phone=573244614444&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
+
+const softwareNames = [
+  'Siigo', 'Alegra', 'World Office', 'Helisa', 'ContaPlus',
+  'Aspel', 'Monica', 'SAP', 'Oracle', 'Siigo Nube',
+]
+const tickerItems = [...softwareNames, ...softwareNames]
 
 const invoices = [
   { name: 'Sura Seguros S.A.', value: '$2.450.000', status: 'done', puc: '620500' },
@@ -49,8 +55,8 @@ export default function Hero() {
           <div className="text-center lg:text-left lg:col-span-6">
             {/* Badge */}
             <div className="reveal inline-flex items-center gap-1.5 badge-orange mb-6">
-              <Sparkles size={12} className="text-brand-orange" />
-              Nuevo · IA para Contadores Colombianos
+              <Cpu size={12} className="text-brand-orange" />
+              IA Contable · Compatible con cualquier software
             </div>
 
             {/* Headline */}
@@ -80,19 +86,33 @@ export default function Hero() {
             </h1>
 
             {/* Sub */}
-            <p className="reveal reveal-delay-2 text-slate-500 text-lg leading-relaxed mb-7 max-w-lg mx-auto lg:mx-0">
-              Conecta la <span className="text-slate-800 font-semibold">DIAN con Siigo</span> en
-              minutos. Nuestra IA automatiza la causación de facturas electrónicas, asocia
-              cuentas del PUC y elimina la digitación manual.
+            <p className="reveal reveal-delay-2 text-slate-500 text-lg leading-relaxed mb-5 max-w-lg mx-auto lg:mx-0">
+              Conecta la <span className="text-slate-800 font-semibold">DIAN con tu software contable</span> en
+              minutos. Nuestra IA lee cada factura electrónica, asocia las cuentas del PUC y
+              las causa automáticamente. <span className="text-slate-800 font-semibold">Cero digitación.</span>
             </p>
+
+            {/* Software compatibility ticker */}
+            <div className="reveal reveal-delay-2 overflow-hidden relative mb-6 max-w-lg mx-auto lg:mx-0">
+              <div className="absolute left-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+              <div className="software-ticker gap-0">
+                {tickerItems.map((sw, i) => (
+                  <span key={i} className="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 px-3 border-r border-slate-100 last:border-r-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                    {sw}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             {/* Trust bullets */}
             <ul className="reveal reveal-delay-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8 text-sm text-slate-600 max-w-md mx-auto lg:mx-0">
               {[
-                'Chao digitar facturas a mano',
-                'Evita errores y sanciones DIAN',
-                'Ahorra 80% del tiempo de cierre',
-                'Sugerencias inteligentes de PUC',
+                'Compatible con Siigo, Alegra, World Office y más',
+                'La IA aprende tu plan de cuentas (PUC)',
+                'Ahorra hasta 3 días de trabajo al mes',
+                'Evita errores y sanciones de la DIAN',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-brand-orange flex-shrink-0" />
@@ -137,6 +157,15 @@ export default function Hero() {
           {/* Right: Coded dashboard mockup */}
           <div className="reveal reveal-delay-2 lg:col-span-6 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Orbiting dashed rings */}
+              <div
+                className="absolute pointer-events-none spin-slow"
+                style={{ inset: '-28px', borderRadius: '28px', border: '1.5px dashed rgba(255,107,0,0.18)' }}
+              />
+              <div
+                className="absolute pointer-events-none spin-reverse"
+                style={{ inset: '-48px', borderRadius: '36px', border: '1px dashed rgba(255,107,0,0.09)' }}
+              />
               {/* Glow behind mockup */}
               <div
                 className="absolute -inset-6 rounded-3xl pointer-events-none"
@@ -276,34 +305,51 @@ export default function Hero() {
               </div>
 
               {/* Floating badges */}
+              {/* Badge top-right: tiempo ahorrado */}
               <div
-                className="absolute -top-3 -right-3 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
+                className="absolute -top-4 -right-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
                 style={{ animation: 'float 5s ease-in-out infinite' }}
               >
                 <div className="w-7 h-7 bg-emerald-50 rounded-xl flex items-center justify-center">
                   <TrendingUp size={13} className="text-emerald-500" />
                 </div>
                 <div>
-                  <p className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider leading-none">
-                    Eficiencia
+                  <p className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider leading-none mb-0.5">
+                    Tiempo ahorrado
                   </p>
-                  <p className="text-xs font-extrabold text-slate-800">+85%</p>
+                  <p className="text-xs font-extrabold text-slate-800">3 días / mes</p>
                 </div>
               </div>
 
+              {/* Badge bottom-left: velocidad IA */}
               <div
-                className="absolute -bottom-3 -left-3 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
-                style={{ animation: 'float 6s ease-in-out infinite 1.5s' }}
+                className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
+                style={{ animation: 'float 6s ease-in-out 1.5s infinite' }}
               >
-                <div className="w-7 h-7 bg-orange-50 rounded-xl flex items-center justify-center">
+                <div className="relative w-7 h-7 bg-orange-50 rounded-xl flex items-center justify-center">
                   <Sparkles size={13} className="text-brand-orange" />
                 </div>
                 <div>
-                  <p className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider leading-none">
-                    Velocidad
+                  <p className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider leading-none mb-0.5">
+                    IA activa
                   </p>
                   <p className="text-xs font-extrabold text-slate-800">5s / factura</p>
                 </div>
+              </div>
+
+              {/* Badge right-center: software compat */}
+              <div
+                className="absolute top-1/2 -right-5 -translate-y-1/2 bg-white rounded-xl px-2.5 py-2 shadow-card border border-slate-100 flex flex-col items-center gap-1"
+                style={{ animation: 'float 7s ease-in-out 3s infinite' }}
+              >
+                <div className="flex flex-col gap-1">
+                  {['S', 'A', 'W'].map((l, i) => (
+                    <div key={l} className="w-5 h-5 rounded-md bg-orange-50 border border-orange-100 flex items-center justify-center">
+                      <span className="text-[8px] font-extrabold text-brand-orange">{l}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[8px] text-slate-400 font-semibold">+7 más</p>
               </div>
             </div>
           </div>

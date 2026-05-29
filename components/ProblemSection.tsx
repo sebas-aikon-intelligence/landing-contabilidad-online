@@ -3,32 +3,32 @@ import { Clock, AlertTriangle, RefreshCcw, TrendingDown } from 'lucide-react'
 const pains = [
   {
     icon: Clock,
-    title: 'Cierres de mes eternos',
-    desc: 'Tu equipo digitando facturas a mano, una por una, hasta altas horas de la noche.',
+    title: 'Noches perdidas en el cierre',
+    desc: 'Tu equipo digitando facturas a mano hasta la madrugada, cuando deberían estar descansando o haciendo análisis real.',
     iconBg: 'bg-red-50',
     iconColor: 'text-red-500',
     border: 'hover:border-red-200',
   },
   {
     icon: AlertTriangle,
-    title: 'Errores de digitación',
-    desc: 'Un NIT incorrecto o una cuenta mal clasificada daña tu balance y toca reprocesar todo.',
+    title: 'Un NIT mal y todo se daña',
+    desc: 'Un número mal transcrito, una cuenta equivocada, un valor mal copiado — y el balance queda mal. Toca reprocesar todo.',
     iconBg: 'bg-amber-50',
     iconColor: 'text-amber-500',
     border: 'hover:border-amber-200',
   },
   {
     icon: RefreshCcw,
-    title: 'Sanciones e IVA inexacto',
-    desc: 'Clasificar mal las retenciones o el IVA descontable te expone a sanciones de la DIAN.',
+    title: 'La DIAN no perdona errores',
+    desc: 'Retenciones mal liquidadas o IVA descontable incorrecto se convierten en sanciones costosas que tú terminas pagando.',
     iconBg: 'bg-orange-50',
     iconColor: 'text-brand-orange',
     border: 'hover:border-orange-200',
   },
   {
     icon: TrendingDown,
-    title: 'Imposible escalar',
-    desc: 'Con causación manual, crecer está limitado por el número de digitadores que puedas pagar.',
+    title: 'No puedes crecer sin contratar más',
+    desc: 'Con causación manual, tu capacidad está limitada por cuántos digitadores puedas pagar. La IA rompe ese techo.',
     iconBg: 'bg-rose-50',
     iconColor: 'text-rose-500',
     border: 'hover:border-rose-200',
@@ -43,13 +43,13 @@ export default function ProblemSection() {
         <div className="text-center mb-14">
           <div className="badge-orange inline-flex mb-4">El reto diario</div>
           <h2 className="reveal font-jakarta font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-slate-900 mb-4 tracking-tight leading-tight">
-            ¿Sigues causando{' '}
-            <span className="gradient-text">facturas a mano?</span>
+            ¿Cuántas horas llevas{' '}
+            <span className="gradient-text">digitando facturas hoy?</span>
           </h2>
           <p className="reveal reveal-delay-1 text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            Los contadores y firmas en Colombia pierden hasta el{' '}
+            Los contadores en Colombia pierden hasta el{' '}
             <span className="text-slate-800 font-semibold">70% de su tiempo</span>{' '}
-            en digitación repetitiva que frena su crecimiento.
+            en tareas repetitivas que una IA puede hacer en segundos. Ese tiempo es tuyo.
           </p>
         </div>
 
@@ -77,8 +77,8 @@ export default function ProblemSection() {
           <div className="bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 rounded-2xl border border-orange-100 p-8 max-w-3xl mx-auto text-center relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-brand-orange to-transparent" />
             <p className="font-jakarta font-extrabold text-xl sm:text-2xl text-slate-800">
-              Ya no tiene que ser así.{' '}
-              <span className="gradient-text">La IA hace la causación por ti.</span>
+              Ese tiempo se puede recuperar.{' '}
+              <span className="gradient-text">La IA causa mientras tú descansas.</span>
             </p>
           </div>
         </div>

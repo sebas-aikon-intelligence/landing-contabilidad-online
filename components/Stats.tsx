@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { value: 95, suffix: '%', label: 'Menos errores', desc: 'vs. digitación manual', bar: 95 },
-  { value: 5, suffix: 's', label: 'Por factura', desc: 'tiempo de causación', bar: 85 },
-  { value: 1000, suffix: '+', label: 'Empresas activas', desc: 'en la plataforma', bar: 70 },
-  { value: 80, suffix: '%', label: 'Ahorro de tiempo', desc: 'en cierre mensual', bar: 80 },
+  { value: 95, suffix: '%', label: 'Reducción de errores', desc: 'comparado con digitación manual', bar: 95 },
+  { value: 5, suffix: 's', label: 'Por factura causada', desc: 'tiempo promedio con IA activa', bar: 85 },
+  { value: 1000, suffix: '+', label: 'Empresas en Colombia', desc: 'confían su causación a la IA', bar: 70 },
+  { value: 80, suffix: '%', label: 'Menos tiempo de cierre', desc: 'recuperado cada mes', bar: 80 },
 ]
 
 function useCountUp(target: number, duration = 1600, started: boolean) {
@@ -70,11 +70,18 @@ function StatCard({
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-orange/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      <div className="font-jakarta font-extrabold text-4xl sm:text-5xl tracking-tight mb-1">
-        <span className="gradient-text tabular-nums">
-          {count.toLocaleString('es-CO')}
-        </span>
-        <span className="text-brand-orange">{suffix}</span>
+      {/* Spinning ring decoration */}
+      <div className="relative inline-block mb-1">
+        <div
+          className="absolute -inset-3 rounded-full border border-dashed border-orange-200 spin-slow pointer-events-none"
+          style={{ borderRadius: '50%' }}
+        />
+        <div className="font-jakarta font-extrabold text-4xl sm:text-5xl tracking-tight relative">
+          <span className="gradient-text tabular-nums">
+            {count.toLocaleString('es-CO')}
+          </span>
+          <span className="text-brand-orange">{suffix}</span>
+        </div>
       </div>
       <p className="font-jakarta font-bold text-slate-800 text-base mb-0.5">{label}</p>
       <p className="text-slate-500 text-sm mb-4">{desc}</p>
