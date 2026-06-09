@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Zap } from 'lucide-react'
 
 const WA_URL =
-  'https://api.whatsapp.com/send/?phone=573244614444&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
+  'https://api.whatsapp.com/send/?phone=573024695956&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
 
 const links = [
   { label: 'Características', href: '#features' },
