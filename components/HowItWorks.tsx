@@ -1,6 +1,7 @@
 'use client'
 
-import { Link2, Cpu, CheckCircle2, ArrowRight, FileText, Database, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { Link2, Cpu, CheckCircle2, ArrowRight } from 'lucide-react'
 
 const WA_URL =
   'https://api.whatsapp.com/send/?phone=573244614444&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
@@ -12,6 +13,8 @@ const steps = [
     title: 'Conecta la DIAN',
     desc: 'Vincula la recepción de facturas electrónicas en segundos. Nuestro sistema lee los XML directo del portal DIAN sin importar el volumen.',
     detail: 'Configuración en 3 minutos',
+    image: '/images/163846.png',
+    url: 'app.contabilidadonline.co/integracion',
   },
   {
     num: '02',
@@ -19,6 +22,8 @@ const steps = [
     title: 'La IA lee, clasifica y aprende',
     desc: 'El motor IA interpreta cada factura — IVA, retenciones, descripción — y sugiere las cuentas exactas de tu PUC. Con el tiempo, aprende de tus ajustes y mejora solo.',
     detail: '99.8% de precisión',
+    image: '/images/164037.png',
+    url: 'app.contabilidadonline.co/facturas',
   },
   {
     num: '03',
@@ -26,10 +31,15 @@ const steps = [
     title: 'Envía a tu software contable',
     desc: 'Con un clic (o en automático), las facturas causadas se sincronizan con Siigo, Alegra, World Office, Helisa o el software que uses — con tercero, cuenta y centro de costo.',
     detail: 'Sincronización instantánea',
+    image: '/images/165623.png',
+    url: 'app.contabilidadonline.co/dashboard',
   },
 ]
 
 export default function HowItWorks() {
+  const [activeStep, setActiveStep] = useState(0)
+  const current = steps[activeStep]
+
   return (
     <section id="how-it-works" className="py-24 relative overflow-hidden bg-slate-50">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
@@ -52,23 +62,44 @@ export default function HowItWorks() {
 
             {steps.map((step, i) => {
               const Icon = step.icon
+              const isActive = i === activeStep
               return (
                 <div
                   key={step.num}
-                  className={`reveal reveal-delay-${i + 1} flex gap-4 items-start bg-white border border-slate-100 p-5 rounded-2xl card-hover relative group`}
+                  onMouseEnter={() => setActiveStep(i)}
+                  className={`flex gap-4 items-start p-5 rounded-2xl relative group cursor-pointer transition-all duration-300 ${isActive
+                      ? 'bg-slate-900 border border-slate-700 shadow-[0_12px_32px_rgba(0,0,0,0.15)]'
+                      : 'bg-white border border-slate-100 hover:border-orange-200'
+                    }`}
                 >
-                  <div className="step-number z-10 flex-shrink-0">{step.num}</div>
+                  {/* Active left accent */}
+                  {isActive && (
+                    <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-gradient-to-b from-brand-orange to-amber-400 rounded-full" />
+                  )}
+
+                  <div
+                    className={`step-number z-10 flex-shrink-0 transition-all duration-300 ${isActive ? 'shadow-[0_0_18px_rgba(255,107,0,0.5)]' : ''
+                      }`}
+                  >
+                    {step.num}
+                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <h3 className="font-jakarta font-bold text-slate-800 text-base leading-tight">{step.title}</h3>
-                      <div className="w-8 h-8 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center flex-shrink-0">
+                      <h3 className={`font-jakarta font-bold text-base leading-tight transition-colors duration-300 ${isActive ? 'text-white' : 'text-slate-800'}`}>
+                        {step.title}
+                      </h3>
+                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isActive ? 'bg-orange-500/20 border border-orange-500/30' : 'bg-orange-50 border border-orange-100'}`}>
                         <Icon size={15} className="text-brand-orange" />
                       </div>
                     </div>
-                    <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
-                    <div className="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-100 rounded-full px-2.5 py-1 mt-2.5">
+                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
+                      {step.desc}
+                    </p>
+                    <div className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 mt-2.5 transition-colors duration-300 ${isActive ? 'bg-orange-500/15 border border-orange-500/20' : 'bg-orange-50 border border-orange-100'}`}>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-                      <span className="text-[11px] font-semibold text-orange-600">{step.detail}</span>
+                      <span className={`text-[11px] font-semibold transition-colors duration-300 ${isActive ? 'text-orange-400' : 'text-orange-600'}`}>
+                        {step.detail}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -76,7 +107,7 @@ export default function HowItWorks() {
             })}
           </div>
 
-          {/* Right: Integration flow mockup */}
+          {/* Right: Interactive image panel */}
           <div className="reveal reveal-delay-2 lg:col-span-7">
             <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.07)]">
               {/* Browser bar */}
@@ -86,116 +117,50 @@ export default function HowItWorks() {
                   <span className="w-3 h-3 rounded-full bg-amber-400 block" />
                   <span className="w-3 h-3 rounded-full bg-green-400 block" />
                 </div>
-                <div className="flex-1 bg-white border border-slate-200 rounded-lg py-1.5 px-3 text-[10px] text-slate-400 font-mono text-center max-w-[260px] mx-auto">
-                  app.contabilidadonline.co/integracion
+                <div className="flex-1 bg-white border border-slate-200 rounded-lg py-1.5 px-3 text-[10px] text-slate-400 font-mono text-center max-w-[260px] mx-auto transition-all duration-300">
+                  {current.url}
+                </div>
+                {/* Step indicator pills */}
+                <div className="flex gap-1 flex-shrink-0">
+                  {steps.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveStep(i)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeStep ? 'bg-brand-orange w-5' : 'bg-slate-200 hover:bg-slate-300'
+                        }`}
+                    />
+                  ))}
                 </div>
               </div>
 
-              {/* Integration diagram */}
-              <div className="p-6">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-5">
-                  Flujo de procesamiento en tiempo real
-                </p>
-
-                {/* Flow boxes */}
-                <div className="flex items-center gap-2 mb-6">
-                  {/* DIAN box */}
-                  <div className="flex-1 bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
-                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <FileText size={18} className="text-blue-600" />
-                    </div>
-                    <p className="text-xs font-bold text-blue-700">Portal DIAN</p>
-                    <p className="text-[10px] text-blue-500 mt-0.5">Facturas XML</p>
-                    <div className="mt-2 text-[11px] font-extrabold text-blue-700">127</div>
-                    <div className="text-[9px] text-blue-400">facturas del mes</div>
-                  </div>
-
-                  {/* Arrow 1 */}
-                  <div className="flex flex-col items-center gap-1 flex-shrink-0">
-                    <div className="flex items-center gap-0.5">
-                      {[0, 1, 2].map((d) => (
-                        <span
-                          key={d}
-                          className="w-1.5 h-1.5 rounded-full bg-brand-orange"
-                          style={{ animation: `pulse-soft 1.4s ease-in-out ${d * 0.3}s infinite` }}
-                        />
-                      ))}
-                    </div>
-                    <ArrowRight size={14} className="text-brand-orange" />
-                  </div>
-
-                  {/* AI Engine box */}
-                  <div className="flex-1 bg-orange-50 border-2 border-orange-200 rounded-xl p-4 text-center relative overflow-visible">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-orange via-amber-400 to-brand-orange" style={{ animation: 'gradient-shift 2s linear infinite' }} />
-                    {/* Spinning ring around icon */}
-                    <div className="relative w-10 h-10 mx-auto mb-2">
-                      <div
-                        className="absolute inset-0 rounded-xl border-2 border-dashed border-orange-300 spin-slow"
-                        style={{ borderRadius: '10px' }}
-                      />
-                      <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center relative z-10" style={{ animation: 'ai-pulse 2s ease-in-out infinite' }}>
-                        <Zap size={18} className="text-white" fill="white" />
-                      </div>
-                    </div>
-                    <p className="text-xs font-bold text-orange-700">Motor IA</p>
-                    <p className="text-[10px] text-orange-500 mt-0.5">Causación Auto.</p>
-                    <div className="mt-2 text-[11px] font-extrabold text-orange-700">99.8%</div>
-                    <div className="text-[9px] text-orange-400">precisión</div>
-                  </div>
-
-                  {/* Arrow 2 */}
-                  <div className="flex flex-col items-center gap-1 flex-shrink-0">
-                    <div className="flex items-center gap-0.5">
-                      {[0, 1, 2].map((d) => (
-                        <span
-                          key={d}
-                          className="w-1.5 h-1.5 rounded-full bg-emerald-500"
-                          style={{ animation: `pulse-soft 1.4s ease-in-out ${d * 0.3 + 0.6}s infinite` }}
-                        />
-                      ))}
-                    </div>
-                    <ArrowRight size={14} className="text-emerald-500" />
-                  </div>
-
-                  {/* Software box */}
-                  <div className="flex-1 bg-emerald-50 border border-emerald-100 rounded-xl p-4 text-center">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-2">
-                      <Database size={18} className="text-emerald-600" />
-                    </div>
-                    <p className="text-xs font-bold text-emerald-700">Tu Software</p>
-                    <p className="text-[10px] text-emerald-500 mt-0.5">Siigo, Alegra y más</p>
-                    <div className="mt-2 text-[11px] font-extrabold text-emerald-700">108</div>
-                    <div className="text-[9px] text-emerald-400">causadas ✓</div>
-                  </div>
+              {/* Image viewport with crossfade */}
+              <div className="relative bg-slate-50 aspect-[16/10] overflow-hidden">
+                {/* Step label overlay */}
+                <div className="absolute top-3 left-3 z-20 flex items-center gap-2">
+                  <span className="bg-slate-900/80 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                    Paso {activeStep + 1} de {steps.length}
+                  </span>
+                  <span className="bg-white/90 backdrop-blur-sm text-slate-600 text-[11px] font-semibold px-2.5 py-1 rounded-full border border-slate-100">
+                    {current.title}
+                  </span>
                 </div>
 
-                {/* Log-style processing view */}
-                <div className="bg-slate-900 rounded-xl p-4 font-mono text-[10px] leading-relaxed">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-slate-400">Procesando en vivo</span>
+                {steps.map((step, i) => (
+                  <div
+                    key={step.num}
+                    className={`absolute inset-0 transition-all duration-500 ease-in-out ${i === activeStep ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.02]'
+                      }`}
+                  >
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover object-top"
+                    />
+                    {/* Subtle gradient overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/30 to-transparent pointer-events-none" />
                   </div>
-                  {[
-                    { t: '09:14:01', msg: 'Factura SURA-2024-00481 recibida', color: 'text-slate-300' },
-                    { t: '09:14:01', msg: 'Analizando XML — NIT 890.903.938-8', color: 'text-slate-300' },
-                    { t: '09:14:02', msg: 'PUC sugerido: 620500 (Seguros)', color: 'text-emerald-400' },
-                    { t: '09:14:02', msg: 'Retención fuente 11% calculada', color: 'text-emerald-400' },
-                    { t: '09:14:02', msg: '✓ Causada en software contable — ID #48291', color: 'text-brand-orange' },
-                  ].map((log, i) => (
-                    <div
-                      key={i}
-                      className="flex gap-3 mock-row"
-                      style={{ animationDelay: `${0.4 + i * 0.35}s` }}
-                    >
-                      <span className="text-slate-600 flex-shrink-0">{log.t}</span>
-                      <span className={log.color}>{log.msg}</span>
-                    </div>
-                  ))}
-                  <div className="flex items-center gap-1.5 mt-2">
-                    <span className="text-slate-600">09:14:03</span>
-                    <span className="w-2 h-3 bg-slate-500 animate-pulse" />
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

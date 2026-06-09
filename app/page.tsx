@@ -4,6 +4,7 @@ import SocialProofBar from '@/components/SocialProofBar'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorks from '@/components/HowItWorks'
 import Features from '@/components/Features'
+import SoftwareShowcase from '@/components/SoftwareShowcase'
 import Stats from '@/components/Stats'
 import Testimonials from '@/components/Testimonials'
 import Pricing from '@/components/Pricing'
@@ -24,6 +25,7 @@ export default function Home() {
         <ProblemSection />
         <HowItWorks />
         <Features />
+        <SoftwareShowcase />
         <Stats />
         <Testimonials />
         <Pricing />

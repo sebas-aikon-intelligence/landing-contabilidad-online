@@ -12,13 +12,7 @@ const softwareNames = [
 ]
 const tickerItems = [...softwareNames, ...softwareNames]
 
-const invoices = [
-  { name: 'Sura Seguros S.A.', value: '$2.450.000', status: 'done', puc: '620500' },
-  { name: 'Claro Colombia', value: '$189.900', status: 'done', puc: '671500' },
-  { name: 'Amazon AWS Inc.', value: '$87.300', status: 'processing', puc: null },
-  { name: 'Alkosto SAS', value: '$345.000', status: 'pending', puc: null },
-  { name: 'Google Workspace', value: '$79.900', status: 'done', puc: '671100' },
-]
+
 
 export default function Hero() {
   useEffect(() => {
@@ -185,122 +179,26 @@ export default function Hero() {
                     <span className="w-3 h-3 rounded-full bg-green-400 block" />
                   </div>
                   <div className="flex-1 bg-white border border-slate-200 rounded-lg py-1.5 px-3 text-[10px] text-slate-400 font-mono text-center max-w-[260px] mx-auto">
-                    app.contabilidadonline.co/facturas
+                    app.contabilidadonline.co/dashboard
                   </div>
-                </div>
-
-                {/* App nav bar */}
-                <div className="bg-white border-b border-slate-100 px-4 py-2 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-md bg-brand-orange flex items-center justify-center">
-                      <span className="text-white text-[8px] font-bold leading-none">CO</span>
-                    </div>
-                    <span className="text-[11px] font-bold text-slate-700">Contabilidad Online</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {['Inicio', 'Facturas', 'Reportes'].map((t, i) => (
-                      <span
-                        key={t}
-                        className={`text-[10px] px-2 py-1 rounded-lg font-medium cursor-pointer ${
-                          i === 1
-                            ? 'bg-orange-50 text-orange-600'
-                            : 'text-slate-400 hover:text-slate-600'
-                        }`}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Stats mini row */}
-                <div className="grid grid-cols-3 gap-2 px-4 py-3 bg-slate-50/60 border-b border-slate-100">
-                  {[
-                    { label: 'Total mes', value: '127', color: 'text-slate-700' },
-                    { label: 'Causadas', value: '108', color: 'text-emerald-600' },
-                    { label: 'Pendientes', value: '19', color: 'text-brand-orange' },
-                  ].map((s) => (
-                    <div key={s.label} className="bg-white rounded-xl px-3 py-2 border border-slate-100">
-                      <div className={`text-base font-extrabold ${s.color} leading-none`}>{s.value}</div>
-                      <div className="text-[9px] text-slate-400 mt-0.5 font-medium">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Invoice table */}
-                <div className="px-4 py-2">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[11px] font-bold text-slate-700">Facturas Recibidas</span>
-                    <span className="text-[10px] text-slate-400">Nov 2024</span>
-                  </div>
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-slate-100">
-                        {['Proveedor', 'Valor', 'Estado', 'PUC'].map((h) => (
-                          <th
-                            key={h}
-                            className={`text-[9px] font-semibold text-slate-400 pb-1.5 ${
-                              h === 'Proveedor' ? 'text-left' : 'text-right'
-                            } ${h === 'Estado' ? 'text-center' : ''}`}
-                          >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {invoices.map((inv, i) => (
-                        <tr
-                          key={i}
-                          className={`border-b border-slate-50 mock-row mock-row-${i + 1}`}
-                        >
-                          <td className="py-1.5 text-[10px] font-medium text-slate-700 pr-2 max-w-[100px] truncate">
-                            {inv.name}
-                          </td>
-                          <td className="py-1.5 text-[10px] text-slate-600 text-right font-medium tabular-nums">
-                            {inv.value}
-                          </td>
-                          <td className="py-1.5 text-center px-1">
-                            {inv.status === 'done' && (
-                              <span className="inline-flex items-center gap-0.5 bg-emerald-50 text-emerald-600 text-[9px] font-semibold px-1.5 py-0.5 rounded-full">
-                                ✓ Causada
-                              </span>
-                            )}
-                            {inv.status === 'processing' && (
-                              <span className="inline-flex items-center gap-0.5 bg-orange-50 text-orange-500 text-[9px] font-semibold px-1.5 py-0.5 rounded-full animate-processing">
-                                ⟳ IA...
-                              </span>
-                            )}
-                            {inv.status === 'pending' && (
-                              <span className="inline-flex items-center gap-0.5 bg-slate-50 text-slate-400 text-[9px] px-1.5 py-0.5 rounded-full">
-                                Pendiente
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-1.5 text-[10px] font-mono text-slate-500 text-right">
-                            {inv.puc ?? '—'}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Action bar */}
-                <div className="px-4 py-2.5 bg-orange-50 border-t border-orange-100 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-60" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500" />
+                  <div className="flex items-center gap-1.5 flex-shrink-0">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                     </span>
-                    <span className="text-[10px] text-orange-700 font-semibold">
-                      19 facturas pendientes
-                    </span>
+                    <span className="text-[10px] text-slate-400 font-semibold">En vivo</span>
                   </div>
-                  <button className="bg-brand-orange text-white text-[10px] font-bold px-3 py-1.5 rounded-full flex items-center gap-1 cursor-pointer hover:bg-brand-orange-light transition-colors">
-                    Procesar con IA
-                    <ArrowRight size={9} />
-                  </button>
+                </div>
+
+                {/* Real software screenshot */}
+                <div className="relative">
+                  <img
+                    src="/images/165715.png"
+                    alt="Dashboard de Contabilidad Online"
+                    className="w-full h-auto block"
+                  />
+                  {/* Subtle bottom fade for floating badges */}
+                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
                 </div>
               </div>
 

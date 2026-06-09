@@ -27,20 +27,26 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <nav
-          className={`flex items-center justify-between h-14 px-5 rounded-2xl transition-all duration-300 ${
-            scrolled
-              ? 'bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-sm'
-              : 'bg-white/70 backdrop-blur-md border border-slate-200/50'
-          }`}
+          className={`flex items-center justify-between h-14 px-5 rounded-2xl transition-all duration-300 ${scrolled
+            ? 'bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-sm'
+            : 'bg-white/70 backdrop-blur-md border border-slate-200/50'
+            }`}
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center shadow-orange-sm">
-              <Zap size={15} className="text-white" fill="white" />
-            </div>
+
+            {/* Imagen que reemplaza al div con el ícono Zap */}
+            <img
+              src="/images/LogoCO.png"
+              alt="Logo"
+              className="w-14 h-14 object-contain rounded-xl shadow-orange-sm"
+            />
+
+            {/* El texto original se mantiene igual */}
             <span className="font-jakarta font-700 text-sm text-slate-900 leading-none tracking-tight">
               Contabilidad<span className="text-brand-orange">Online</span>
             </span>
+
           </a>
 
           {/* Desktop links */}
@@ -79,9 +85,8 @@ export default function Navbar() {
 
         {/* Mobile overlay */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            open ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
-          }`}
+          className={`md:hidden transition-all duration-300 overflow-hidden ${open ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+            }`}
         >
           <div className="bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl mt-2 px-3 py-3 shadow-sm">
             <ul className="space-y-0.5 mb-3">

@@ -13,7 +13,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: 'Detección de Retenciones e IVA',
-    desc: 'Identifica automáticamente retención en la fuente, IVA e ICA según la parametrización de tu empresa.',
+    desc: 'Identifica automáticamente retención en la fuente, IVA e ICA según la parametrización de tu empresa. Sin configuración adicional.',
     tag: 'Liquidación de Impuestos',
     col: 'lg:col-span-1',
   },
@@ -33,10 +33,10 @@ const features = [
   },
   {
     icon: Users,
-    title: 'Soporte Local Experto',
-    desc: 'Ingenieros y contadores en Colombia que conocen la normativa tributaria local. Soporte 100% en vivo, sin bots.',
+    title: 'Soporte Local Experto en Colombia',
+    desc: 'Ingenieros y contadores en Colombia que conocen la normativa tributaria local. Soporte 100% en vivo, sin bots, por WhatsApp y videollamada.',
     tag: 'Soporte 100% Humano',
-    col: 'lg:col-span-2',
+    col: 'lg:col-span-1',
   },
 ]
 
@@ -65,7 +65,7 @@ export default function Features() {
         </div>
 
         {/* Features bento grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-5 mb-16">
           {features.map((feat, i) => {
             const Icon = feat.icon
             return (
