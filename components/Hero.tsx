@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-28 pb-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-16 sm:pb-20">
       {/* Subtle background blobs */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -44,7 +44,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Left: copy */}
           <div className="text-center lg:text-left lg:col-span-6">
             {/* Badge */}
@@ -150,14 +150,14 @@ export default function Hero() {
 
           {/* Right: Coded dashboard mockup */}
           <div className="reveal reveal-delay-2 lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Orbiting dashed rings */}
+            <div className="relative mx-auto max-w-md lg:max-w-none overflow-hidden sm:overflow-visible">
+              {/* Orbiting dashed rings — hidden on mobile to prevent overflow */}
               <div
-                className="absolute pointer-events-none spin-slow"
+                className="absolute pointer-events-none spin-slow hidden sm:block"
                 style={{ inset: '-28px', borderRadius: '28px', border: '1.5px dashed rgba(255,107,0,0.18)' }}
               />
               <div
-                className="absolute pointer-events-none spin-reverse"
+                className="absolute pointer-events-none spin-reverse hidden sm:block"
                 style={{ inset: '-48px', borderRadius: '36px', border: '1px dashed rgba(255,107,0,0.09)' }}
               />
               {/* Glow behind mockup */}
@@ -202,10 +202,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating badges */}
+              {/* Floating badges — hidden on mobile to prevent overflow */}
               {/* Badge top-right: tiempo ahorrado */}
               <div
-                className="absolute -top-4 -right-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
+                className="absolute -top-4 -right-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 hidden sm:flex items-center gap-2"
                 style={{ animation: 'float 5s ease-in-out infinite' }}
               >
                 <div className="w-7 h-7 bg-emerald-50 rounded-xl flex items-center justify-center">
@@ -221,7 +221,7 @@ export default function Hero() {
 
               {/* Badge bottom-left: velocidad IA */}
               <div
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 flex items-center gap-2"
+                className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-3.5 py-2.5 shadow-card border border-slate-100 hidden sm:flex items-center gap-2"
                 style={{ animation: 'float 6s ease-in-out 1.5s infinite' }}
               >
                 <div className="relative w-7 h-7 bg-orange-50 rounded-xl flex items-center justify-center">
@@ -237,7 +237,7 @@ export default function Hero() {
 
               {/* Badge right-center: software compat */}
               <div
-                className="absolute top-1/2 -right-5 -translate-y-1/2 bg-white rounded-xl px-2.5 py-2 shadow-card border border-slate-100 flex flex-col items-center gap-1"
+                className="absolute top-1/2 -right-5 -translate-y-1/2 bg-white rounded-xl px-2.5 py-2 shadow-card border border-slate-100 hidden sm:flex flex-col items-center gap-1"
                 style={{ animation: 'float 7s ease-in-out 3s infinite' }}
               >
                 <div className="flex flex-col gap-1">

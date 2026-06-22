@@ -11,7 +11,7 @@ const perks = [
 
 export default function FinalCTA() {
   return (
-    <section className="py-28 relative overflow-hidden bg-slate-900">
+    <section className="py-20 sm:py-28 relative overflow-hidden bg-slate-900">
       {/* Background texture */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -68,12 +68,12 @@ export default function FinalCTA() {
         </div>
 
         {/* CTA */}
-        <div className="reveal reveal-delay-3">
+        <div className="reveal reveal-delay-3 px-4 sm:px-0">
           <a
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-cta inline-flex items-center gap-3 px-9 py-5 text-lg text-white"
+            className="btn-cta flex sm:inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-9 sm:py-5 text-base sm:text-lg text-white"
           >
             <span className="flex items-center gap-3">
               Agenda tu Demo Gratis Ahora

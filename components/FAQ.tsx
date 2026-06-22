@@ -75,7 +75,7 @@ function FAQItem({ q, a, idx }: { q: string; a: string; idx: number }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 relative overflow-hidden bg-white">
+    <section id="faq" className="py-16 sm:py-24 relative overflow-hidden bg-white">
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
         {/* Header */}
         <div className="text-center mb-12">

@@ -37,7 +37,7 @@ const pains = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
         {/* Header */}
         <div className="text-center mb-14">

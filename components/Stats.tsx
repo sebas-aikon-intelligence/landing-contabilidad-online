@@ -99,7 +99,7 @@ function StatCard({
 
 export default function Stats() {
   return (
-    <section className="py-24 relative overflow-hidden bg-orange-50">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-orange-50">
       {/* Subtle pattern */}
       <div
         className="absolute inset-0 pointer-events-none"

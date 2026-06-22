@@ -17,7 +17,7 @@ const waveClasses = ['wave-chip', 'wave-chip-2', 'wave-chip-3', 'wave-chip-4', '
 
 export default function SocialProofBar() {
   return (
-    <section className="py-14 bg-slate-50 border-y border-slate-100">
+    <section className="py-10 sm:py-14 bg-slate-50 border-y border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
         <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">
           Compatible con los software contables líderes de Colombia y el mundo

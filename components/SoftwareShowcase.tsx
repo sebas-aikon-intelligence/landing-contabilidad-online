@@ -84,7 +84,7 @@ export default function SoftwareShowcase() {
   const current = modules[activeIdx]
 
   return (
-    <section id="software-showcase" className="py-24 relative overflow-hidden bg-white border-t border-slate-100">
+    <section id="software-showcase" className="py-16 sm:py-24 relative overflow-hidden bg-white border-t border-slate-100">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
         {/* Header */}
         <div className="text-center mb-12">
