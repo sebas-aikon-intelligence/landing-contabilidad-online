@@ -46,15 +46,17 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Left: copy */}
-          <div className="text-center lg:text-left lg:col-span-6">
+          <div className="text-center lg:text-left lg:col-span-6 min-w-0 w-full">
             {/* Badge */}
-            <div className="reveal inline-flex items-center gap-1.5 badge-orange mb-6">
-              <Cpu size={12} className="text-brand-orange" />
-              IA Contable · Compatible con cualquier software
+            <div className="reveal mb-6">
+              <span className="badge-orange inline-flex items-center gap-1.5">
+                <Cpu size={12} className="text-brand-orange" />
+                IA Contable · Compatible con cualquier software
+              </span>
             </div>
 
             {/* Headline */}
-            <h1 className="reveal reveal-delay-1 font-jakarta font-extrabold text-4xl sm:text-5xl xl:text-[52px] leading-[1.08] tracking-tight mb-5 text-slate-900">
+            <h1 className="reveal reveal-delay-1 font-jakarta font-extrabold text-[2rem] sm:text-5xl xl:text-[52px] leading-[1.08] tracking-tight mb-5 text-slate-900">
               Causa el doble{' '}
               <span className="gradient-text">de facturas.</span>
               <br />
@@ -138,18 +140,18 @@ export default function Hero() {
 
             {/* Live badge */}
             <div className="reveal reveal-delay-4 mt-5 flex items-center gap-2.5 justify-center lg:justify-start">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-60" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-orange" />
               </span>
-              <p className="text-sm font-semibold text-slate-500">
+              <p className="text-sm font-semibold text-slate-500 min-w-0">
                 Cupos limitados — Acceso anticipado para firmas contables
               </p>
             </div>
           </div>
 
           {/* Right: Coded dashboard mockup */}
-          <div className="reveal reveal-delay-2 lg:col-span-6 relative">
+          <div className="reveal reveal-delay-2 lg:col-span-6 relative min-w-0">
             <div className="relative mx-auto max-w-md lg:max-w-none overflow-hidden sm:overflow-visible">
               {/* Orbiting dashed rings — hidden on mobile to prevent overflow */}
               <div
