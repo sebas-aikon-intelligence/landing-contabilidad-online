@@ -1,4 +1,7 @@
+'use client'
+
 import { ArrowRight, Calendar, Clock, Shield, Sparkles } from 'lucide-react'
+import { useMetaEvent } from './useMetaEvent'
 
 const WA_URL =
   'https://api.whatsapp.com/send/?phone=573024695956&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
@@ -10,6 +13,8 @@ const perks = [
 ]
 
 export default function FinalCTA() {
+  const { track } = useMetaEvent()
+
   return (
     <section className="py-20 sm:py-28 relative overflow-hidden bg-slate-900">
       {/* Background texture */}
@@ -73,6 +78,7 @@ export default function FinalCTA() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('Lead', { customData: { content_name: 'final_cta' } })}
             className="btn-cta flex sm:inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-9 sm:py-5 text-base sm:text-lg text-white"
           >
             <span className="flex items-center gap-3">

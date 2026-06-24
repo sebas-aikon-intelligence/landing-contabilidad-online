@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { ArrowRight, CheckCircle, Sparkles, TrendingUp, Cpu } from 'lucide-react'
+import { useMetaEvent } from './useMetaEvent'
 
 const WA_URL =
   'https://api.whatsapp.com/send/?phone=573024695956&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
@@ -15,6 +16,8 @@ const tickerItems = [...softwareNames, ...softwareNames]
 
 
 export default function Hero() {
+  const { track } = useMetaEvent()
+
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
     const obs = new IntersectionObserver(
@@ -123,6 +126,7 @@ export default function Hero() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('Lead', { customData: { content_name: 'hero_cta' } })}
                 className="btn-cta inline-flex items-center justify-center gap-2 px-7 py-4 text-base text-white"
               >
                 <span className="flex items-center gap-2">

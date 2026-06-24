@@ -1,4 +1,7 @@
+'use client'
+
 import { CheckCircle2, ArrowRight, Sparkles, Zap } from 'lucide-react'
+import { useMetaEvent } from './useMetaEvent'
 
 const WA_URL =
   'https://api.whatsapp.com/send/?phone=573024695956&text=Hola.+Quiero+informaci%C3%B3n+de+los+planes&type=phone_number&app_absent=0'
@@ -69,6 +72,8 @@ const plans = [
 ]
 
 export default function Pricing() {
+  const { track } = useMetaEvent()
+
   return (
     <section id="pricing" className="py-16 sm:py-24 relative overflow-hidden bg-slate-50">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
@@ -163,6 +168,11 @@ export default function Pricing() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track('InitiateCheckout', {
+                    customData: { content_name: plan.name, content_category: 'pricing' },
+                  })
+                }
                 className={`flex items-center justify-center gap-2 py-3.5 rounded-xl font-jakarta font-bold text-sm transition-all duration-200 cursor-pointer ${
                   plan.highlight
                     ? 'btn-cta text-white'
